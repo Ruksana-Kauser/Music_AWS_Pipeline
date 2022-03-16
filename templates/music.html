@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <form action="/music" method = "POST">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Enter your music</label>
+        <input type="text" class="form-control" name="input" id="exampleFormControlInput1" required >
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>  
+</form>
+</div>
+
+
+{% if boom == 100 %}
+<div class="container">
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">S.No.</th>
+            <th scope="col">Music_ID</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Ratings</th>
+            <th scope="col">Popularity</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in n %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{i}}</td>
+            <td>{{g[loop.index - 1]}}</td>
+            <td>{{r[loop.index - 1]}}</td>
+            <td>{{p[loop.index - 1]}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endif %}
+
+{% endblock body %}
